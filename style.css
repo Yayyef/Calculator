@@ -1,0 +1,61 @@
+.container {
+    width: 500px;
+    height: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: blueviolet;
+}
+
+.display {
+    background-color: white;
+    width: 80%;
+    height: 10%;
+    margin: 20px auto;
+    margin-top: 20px;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    justify-content: space-between; 
+    padding: auto;
+}
+
+.allButtons {
+    width: 400px;
+    height: 400px;
+    margin: 0px auto;
+    background-color: tomato;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.numbers {
+    width: 70%;
+    height: 85%;
+    background-color: yellow;
+    display: flex;
+    flex-wrap: wrap;
+
+    justify-content: space-evenly;
+    
+}
+
+.numbers button {
+    /* padding: 20px; */
+    width: 33%;
+}
+
+.operators {
+    width: 30%;
+    height: 85%;
+    background-color: turquoise;
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: flex-end;
+}
+
+.operators button {
+    height: 18%;
+    width: 100%;
+}
