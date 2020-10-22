@@ -1,29 +1,45 @@
+/* html {
+    background-image: url(https://cdn.pixabay.com/photo/2014/08/26/19/21/document-428338_1280.jpg);
+    
+}; */
+
+body {
+    background-color: rgb(69, 75, 76);
+    background-image: url(https://cdn.pixabay.com/photo/2014/08/26/19/21/document-428338_1280.jpg);
+    background-size: cover;
+    font-family: 'Bebas Neue', cursive;
+}
+
 .container {
-    width: 500px;
-    height: 600px;
+    width: 420px;
+    height: 500px;
     margin: 20px auto;
     padding: 20px;
-    background-color: blueviolet;
+    background-color: rgba(60, 87, 153, 0.945);
+    border-radius: 30px;
+    border: solid black 3px;
 }
 
 .display {
     background-color: white;
-    width: 80%;
-    height: 10%;
-    margin: 20px auto;
-    margin-top: 20px;
+    width: 85%;
+    height: 20%;
+    margin: 10px auto;
     align-items: center;
     text-align: center;
     display: flex;
     justify-content: space-between; 
-    padding: auto;
+    padding: 0px 10px 0px 10px;
+    border-radius: 10px;
+    border: solid black 3px;
+    font-size: 2rem;
 }
 
 .allButtons {
-    width: 400px;
-    height: 400px;
+    width: 90%;
+    height: 75%;
     margin: 0px auto;
-    background-color: tomato;
+    /* background-color: tomato; */
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -31,24 +47,27 @@
 
 .numbers {
     width: 70%;
-    height: 85%;
-    background-color: yellow;
+    /* height: 85%; */
+    /* background-color: yellow; */
     display: flex;
     flex-wrap: wrap;
-
-    justify-content: space-evenly;
-    
+    justify-content: space-around;    
 }
 
 .numbers button {
     /* padding: 20px; */
-    width: 33%;
+    width: 30%;
+    border-radius: 100px;
+    margin: 5px 0;
+    font-size: 2rem;
+    font-family: 'Bebas Neue', cursive;
+    border: solid black 3px;
 }
 
 .operators {
     width: 30%;
-    height: 85%;
-    background-color: turquoise;
+    /* height: 85%; */
+    /* background-color: turquoise; */
     display: flex;
     flex-direction: column;
     
@@ -57,5 +76,12 @@
 
 .operators button {
     height: 18%;
-    width: 100%;
+    border-radius: 10px;
+    margin: 5px 0px 5px 10px;
+    width: 90%;
+    font-size: 1.5rem;
+    font-family: 'Bebas Neue', cursive;
+    color: white;
+    background-color: darkslategray;
+    border: solid black 3px;
 }

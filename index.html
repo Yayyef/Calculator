@@ -3,36 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="style.css">
     <title>Calculator</title>
 </head>
 <body>
     <div class="container">
-        <div class="display">747</div>
+        <div class="display"></div>
 
         <div class="allButtons" onclick="captureButton(event)">
             
             <div class="numbers">
-                <button>8</button>
-                <button>7</button>
-                <button>6</button>
-                <button>9</button>
-                <button>5</button>
-                <button>4</button>
-                <button>3</button>
-                <button>2</button>
-                <button>1</button>
-                <button>0</button>
+                <button data-index="9" id="9">9</button>
+                <button data-index="8" id="8">8</button>
+                <button data-index="7" id="7">7</button>
+                <button data-index="6" id="6">6</button>
+                <button data-index="5" id="5">5</button>
+                <button data-index="4" id="4">4</button>
+                <button data-index="3" id="3">3</button>
+                <button data-index="2" id="2">2</button>
+                <button data-index="1" id="1">1</button>
+                <button data-index="0" id="0">0</button>
             </div>
 
             <div class="operators">
-                <button>CLEAR</button>
-                <button>+</button>
-                <button>-</button>
-                <button>*</button>
-                <button>/</button>
-                <button>=</button>
+                <button data-index="C" id="C">C</button>
+                <button data-index="+" id="+">+</button>
+                <button data-index="-" id="-">-</button>
+                <button data-index="*" id="*">*</button>
+                <button data-index="/" id="/">/</button>
+                <button data-index="=" id="=">=</button>
             </div>
             
         </div>
