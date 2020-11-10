@@ -4,8 +4,8 @@ let num2 = '';
 let operator1 = '';
 let operator2 = '';
 
-// Sert a reset le display seulement si un operator a été défini.
-let operatorSet;
+// Sert a reset le display seulement si un operator a été défini. Ex 67 + (reset)3
+let displayResetSwitch;
 
 let displayValue = '';
 const display = document.querySelector('.display');
@@ -20,55 +20,58 @@ allButtons.onclick = function(e) {
     if (!targetButton.matches('button')) {
         return
 
+    // On reagarde si le boutton est un chiffre
     } else if (0 <= buttonValue && buttonValue <= 9){
 
-        if (operatorSet === true) {
+        if (displayResetSwitch === true) {
             clear();
-            operatorSet = false;
+            displayResetSwitch = false;
         };
+
+        // if (num1 !== '' && operator1 !== '') {
+        //     clearButton();
+        // }
 
         displayValue += buttonValue;
         display.innerHTML = displayValue;
 
+    // Boutton CLEAR
     } else if (buttonValue === 'C') {
         clearButton();
 
+    // Bouton DEL
+    } else if (buttonValue === 'DEL') {
+        clear();
+
+    // Si le boutton est un opérateur.
     } else if (buttonValue === '+' || buttonValue === '-' || buttonValue === '*' || buttonValue === '/') {
 
-        // PREMIER OPERATEUR, phase d'initialisation
+        // PREMIER OPERATEUR, phase d'initialisation  
         if (num1 === '' && displayValue !== '') {
-            operatorSet = true;
+            displayResetSwitch = true;
             operator1 = buttonValue;
-            num1 = parseInt(displayValue);
+            num1 = parseFloat(displayValue);
         
-        } else if (num1 !== '' && num2 === '' && operator1 !== '') {
-            // Pour éviter un bug si on clique deux fois sur des operateurs.
-            if (operatorSet === true) {
+        } else if (operator1 !== '') {
+            // Pour éviter un bug si on clique deux fois sur des operateurs. num1 !== '' && num2 === '' && 
+            if (displayResetSwitch === true) {
                 operator1 = buttonValue;
 
-            } else if (operatorSet === false) {                
+            } else if (displayResetSwitch === false) {                
                 operator2 = buttonValue;
-                num2 = parseInt(displayValue);
-                operate(num1, num2, operator1);
-                updateDisplay();
-                num2 = '';
-                operator1 = '';
-                
+                updateDisplay(operator1);
+                operator1 = '';                
             };
         
         } else if (operator2 !== '') {
             // Pour éviter un bug si on clique deux fois sur des operateurs.
-            if (operatorSet === true) {
+            if (displayResetSwitch === true) {
                 operator1 = buttonValue;
 
-            } else if (operatorSet === false) {                
+            } else if (displayResetSwitch === false) {                
                 operator1 = buttonValue;            
-                num2 = parseInt(displayValue);
-                operate(num1, num2, operator2);
-                updateDisplay();
-                num2 = '';
-                operator2 = '';
-                
+                updateDisplay(operator2);
+                operator2 = '';                
             };   
 
         };
@@ -80,44 +83,48 @@ allButtons.onclick = function(e) {
 
         if (operator2 === '') {
 
-            if (operatorSet === true) {
+            // Si on fait + puis = l'operator est reset
+            if (displayResetSwitch === true) {
                 operator1 = '';
                 return; 
 
-            } else if (operatorSet === false) {               
-                num2 = parseInt(displayValue);
-                operate(num1, num2, operator1);
-                updateDisplay();
-                num2 = '';
-                
-            }
+            } else if (displayResetSwitch === false) {               
+                updateDisplay(operator1);
+                operator1 = '';
+                num1 = '';
+            };
 
         } else if (operator1 === '') {
 
-            if (operatorSet === true) {
-                operator2 = 0;
+            // Si on fait + puis = l'operator est reset
+            if (displayResetSwitch === true) {
+                operator2 = '';
                 return; 
 
             } else {   
-                num2 = parseInt(displayValue);
-                operate(num1, num2, operator2);
-                updateDisplay();
-                num2 = '';
-                
+                updateDisplay(operator2);
+                operator2 = '';
+                num1 = '';
             };
-        };        
+
+        }    
     };
 
 };
 
-function updateDisplay() {
+// Operates and updates display, met en mémoire num1 pour l'opération suivante, reset num2 pour la prochaine opération.
+function updateDisplay(operatorX) {
+    num2 = parseFloat(displayValue);
+    operate(num1, num2, operatorX);
     displayValue = result;
     display.innerHTML = displayValue;
-    num1 = parseInt(displayValue);
-    operatorSet = true;
+    num1 = parseFloat(displayValue);
+    displayResetSwitch = true;
+    num2 = '';
 };
 
 function operate(num1, num2, op) {
+    
     switch (op) {
         case '+':
             return result = num1 + num2;
@@ -129,7 +136,7 @@ function operate(num1, num2, op) {
             return result = num1 * num2;
             break;
         case '/':
-            return result = num1 / num2;
+            return result = num1 / num2;           
             break;
         default:
             alert('Select operator');

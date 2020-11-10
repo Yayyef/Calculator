@@ -1,8 +1,3 @@
-/* html {
-    background-image: url(https://cdn.pixabay.com/photo/2014/08/26/19/21/document-428338_1280.jpg);
-    
-}; */
-
 body {
     background-color: rgb(69, 75, 76);
     background-image: url(https://cdn.pixabay.com/photo/2014/08/26/19/21/document-428338_1280.jpg);
@@ -39,7 +34,6 @@ body {
     width: 90%;
     height: 75%;
     margin: 0px auto;
-    /* background-color: tomato; */
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -47,15 +41,12 @@ body {
 
 .numbers {
     width: 70%;
-    /* height: 85%; */
-    /* background-color: yellow; */
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;    
 }
 
 .numbers button {
-    /* padding: 20px; */
     width: 30%;
     border-radius: 100px;
     margin: 5px 0;
@@ -64,13 +55,14 @@ body {
     border: solid black 3px;
 }
 
+.numbers .other {
+    background-color: rgb(94, 163, 163);
+}
+
 .operators {
     width: 30%;
-    /* height: 85%; */
-    /* background-color: turquoise; */
     display: flex;
-    flex-direction: column;
-    
+    flex-direction: column;    
     justify-content: flex-end;
 }
 
